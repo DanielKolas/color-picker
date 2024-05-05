@@ -3,7 +3,7 @@ const btnClear = document.querySelector("#clear-btn");
 const colorList = document.querySelector(".all-colors");
 
 // taking the colors from the local storage 
-let pickedColors = JSON.parse(localStorage.getItem("list-of-colors")) || [];
+let pickedColors = JSON.parse(sessionStorage.getItem("list-of-colors")) || [];
 let currentPopUp = null;
 
 // copying color - text !
@@ -75,8 +75,6 @@ const showColors = () => {
     colorElements.forEach((li) => {
         const colorHex = li.querySelector(".circle");
         colorHex.addEventListener('click', (e) => {
-            console.log("danio")
-            console.log(e.currentTarget.style.backgroundColor)
             const color = e.currentTarget.style.backgroundColor;
             if (currentPopUp) {
                 document.body.removeChild(currentPopUp);
@@ -121,6 +119,7 @@ const activateEyeDropper = async () => {
 const clearAll = () => {
     pickedColors = [];
     localStorage.removeItem("list-of-colors");
+    // document.body.removeChild(currentPopUp);
     showColors();
 }
 
