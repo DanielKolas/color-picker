@@ -1,5 +1,5 @@
 {
-    "name": "CoGe - Color Picker and Palette Generator",
+    "name": "CoGe • Color Picker and Palette Generator",
     "version": "1.0.0",
     "description": "This is an extension to pick the colors from the website and generate color palettes out of them",
     "manifest_version": 3,
@@ -10,5 +10,6 @@
     },
     "icons": {
         "512": "assets/coge_logo.png"
-    }
+    },
+    "offline_enabled": true
 }
