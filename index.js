@@ -1,5 +1,4 @@
 const btnPick = document.querySelector("#btn-pick");
-// const exportBtn = document.querySelector("#btn-export");
 const btnClear = document.querySelector("#clear-btn");
 const colorList = document.querySelector(".all-colors");
 
@@ -20,19 +19,6 @@ const copyToClipboard = async(text,element) => {
         alert("Failed to copy text!")
     }
 }
-// ???????? Blob - zmienić na paletę kolorów
-// const exportColor = () =>{
-//     const colorText = pickedColors.join("\n");
-//     const blob = new Blob([colorText],{type:"text/plain"});
-//     const url = URL.createObjectURL(blob);
-//     const a = document.createElement("a"); //<a></a>
-//     a.href = url;
-//     a.download = 'Colors.txt';
-//     document.body.appendChild(a);
-//     a.click();
-//     document.body.removeChild(a);
-//     URL.revokeObjectURL(url);
-// } 
 
 const createColorPopup = (color) => {
     const popup = document.createElement("div");
@@ -139,6 +125,5 @@ const clearAll = () => {
 
 btnPick.addEventListener('click', activateEyeDropper);
 btnClear.addEventListener('click', clearAll);
-// exportBtn.addEventListener('click',exportColor);
 
 showColors();
