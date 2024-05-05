@@ -48,7 +48,7 @@ const createColorPopup = (color) => {
         document.body.removeChild(popup);
         currentPopUp = null;
     });
-
+   
     // Event listeners to copy color values to clipboard
     const colorValues = popup.querySelectorAll(".value");
     colorValues.forEach((value) => {
@@ -118,8 +118,7 @@ const activateEyeDropper = async () => {
 
 const clearAll = () => {
     pickedColors = [];
-    localStorage.removeItem("list-of-colors");
-    // document.body.removeChild(currentPopUp);
+    sessionStorage.removeItem("list-of-colors");
     showColors();
 }
 
