@@ -1,4 +1,4 @@
-const btnPick = document.querySelector("#btn-pick");
+const btnPick = document.querySelectorAll(".btn-pick");
 const btnClear = document.querySelector("#clear-btn");
 const colorList = document.querySelector(".all-colors");
 
@@ -61,22 +61,23 @@ const createColorPopup = (color) => {
     return popup;
 };
 
-// ttuaj na dół wrzucic ladne pokazanie 
+// tutaj na dół wrzucic ladne pokazanie 
 const showColors = () => {
     colorList.innerHTML = pickedColors.map((color) =>
         `
-            <li class="color">
-                <span class="rect" style="background: ${color}; border: 1px solid ${color === "#ffffff" ? "#ccc" : color}"></span>
-                <span class="value hex" data-color="${color}">${color}</span>
+            <li class="color-chosen">
+                <span class="circle" style="background: ${color}; border: 1px solid ${color === "#ffffff" ? "#ccc" : color}"></span>
             </li>
         `
     ).join("");
 
-    const colorElements = document.querySelectorAll(".color");
+    const colorElements = document.querySelectorAll(".color-chosen");
     colorElements.forEach((li) => {
-        const colorHex = li.querySelector(".value.hex");
+        const colorHex = li.querySelector(".circle");
         colorHex.addEventListener('click', (e) => {
-            const color = e.currentTarget.dataset.color;
+            console.log("danio")
+            console.log(e.currentTarget.style.backgroundColor)
+            const color = e.currentTarget.style.backgroundColor;
             if (currentPopUp) {
                 document.body.removeChild(currentPopUp);
             }
@@ -123,7 +124,10 @@ const clearAll = () => {
     showColors();
 }
 
-btnPick.addEventListener('click', activateEyeDropper);
+btnPick.forEach((e)=>{
+    e.addEventListener('click', activateEyeDropper)
+});
 btnClear.addEventListener('click', clearAll);
+// add clearing the popups 
 
 showColors();
